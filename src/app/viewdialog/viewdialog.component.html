@@ -1,0 +1,11 @@
+<mat-dialog-content style="background-color: rgb(79, 134, 216);">
+    <h2 mat-dialog-title>Quote {{ quoteID }} Details</h2>
+    <div style="border: 10px solid darkblue;background-color:khaki;">
+    <label><b><i>Quote Type:</i></b> {{ qtype }}</label><br>
+    <label><b><i>Contact Name:</i></b> {{ contact }}</label><br>
+    <label><b><i>Task Description:</i></b> {{ task }}</label><br>
+    <label><b><i>Due Date:</i></b> {{ duedate | customDate }}</label><br>
+    <label><b><i>Task Type:</i></b> {{ tasktype }}</label>
+    </div><br>
+    <button mat-raised-button style="position: relative;float:right;background-color: greenyellow;" type="button" mat-dialog-close><mat-icon>cancel</mat-icon>Close</button>
+</mat-dialog-content>

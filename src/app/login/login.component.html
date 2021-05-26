@@ -1,0 +1,35 @@
+<!-- <a routerLink="/tasks">Tasks</a> -->
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<br><br><br><br><br><br><br><br>
+
+<div class="container" style="border: 5px solid green;background-color: darkgoldenrod;width: 500px;display:block;margin-left: auto;margin-right: auto;">
+        <form #myloginform="ngForm" (ngSubmit)="submitLoginForm(myloginform)">
+        
+            <div class="form-group"> 
+                <label style="width:180px;display: inline-block;text-align: left;">Email</label>
+                <input class="form-control" type="email" style="width:50%;" ngModel name="emailid" required>
+                <small><span *ngIf="myloginform.controls.emailid?.touched && myloginform.controls.emailid.invalid">*Required</span></small>
+            </div>
+            <div class="form-group">
+                <label>Password</label>&nbsp;&nbsp;
+                <input class="form-control" type="text" style="width:50%;" ngModel name="password" required>
+                <small><span *ngIf="myloginform.controls.password?.touched && myloginform.controls.password.invalid">*Required</span></small>
+            </div>
+            
+            <button mat-raised-button color="success" type="submit" [disabled]="!myloginform.valid"><mat-icon>save</mat-icon> Login</button>
+    
+
+        </form>  
+</div>
+
+</body>
+</html>
+
+
+

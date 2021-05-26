@@ -1,0 +1,42 @@
+
+<h2 mat-dialog-title>Update Task</h2>
+<mat-dialog-content>
+   <form #myeform="ngForm" (ngSubmit)="editForm(myeform)">
+
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Quote</label>
+            <input class="form-control" type="number" style="width:30%;" [ngModel]="dataelement.QuoteID" name="quote" required>
+        </div>
+        
+        <div class="form-group" style="display:flex; flex-direction: row;"> 
+            <label style="width:180px;display: inline-block;text-align: left;">Quote Type</label>
+            <input class="form-control" type="text" style="width:30%;" [ngModel]="dataelement.Quote_Type" name="quotetype" required><br>
+            <span *ngIf="myeform.controls.quotetype?.touched && myeform.controls.quotetype.invalid">*Required</span>
+        </div>
+        
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Task Type</label>
+            <input class="form-control" type="text" style="width:30%;" [ngModel]="dataelement.Task_type" name="tasktype" required>
+        </div>
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Contact Name</label>
+            <input class="form-control" type="text" style="width:30%;" [ngModel]="dataelement.Contact" name="contactname" required>
+        </div>
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Due Date</label>
+            <input class="form-control" type="text" style="width:15%;" [ngModel]="dataelement.Due_Date | customDate" name="duedate" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Task Description</label>
+            <textarea class="form-control" [ngModel]="dataelement.Task" name="taskdesc" rows="3" required></textarea>
+        </div>
+    
+
+        <button class="btn btn-primary" type="submit" mat-dialog-close [disabled]="!myeform.valid"> Save Changes</button>
+        <button class="btn btn-danger" type="button" mat-dialog-close> Cancel</button>  
+    </form>  
+</mat-dialog-content>
+
+
+

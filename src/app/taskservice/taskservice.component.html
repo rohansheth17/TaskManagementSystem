@@ -1,0 +1,77 @@
+
+
+<div class="container text-center">
+
+  
+    <mat-toolbar style="background-color: grey;">
+      <h6 style="color: darkblue;">Task Details</h6>
+      <span class="example-spacer"></span>
+      <button mat-button mat-flat-button color="success" class="text-right" (click)="openDialog()"><mat-icon>note_add</mat-icon>Add Task</button>
+    </mat-toolbar>  
+  
+
+  <div style="position: relative;float:right;">
+    <!-- <mat-form-field> -->
+      <label>Search</label>
+      <input type="text" value="" (keyup)="applyFilter($event.target.value)">
+    <!-- </mat-form-field> -->
+  </div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="QuoteID">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> QuoteID </th>
+      <td mat-cell *matCellDef="let element"> {{element.QuoteID}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Quote_Type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Quote_Type </th>
+      <td mat-cell *matCellDef="let element"> {{element.Quote_Type}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Contact">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+      <td mat-cell *matCellDef="let element"> {{element.Contact}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Task">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.Task}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Due_Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.Due_Date | customDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Task_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.Task_type}} </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element" class="action-link"> 
+        <a class="view" (click)="openViewDialog(element.QuoteID)"><fa-icon [icon]="faEye"></fa-icon></a> |
+        <a class="edit" (click)="openEditDialog(element)"><fa-icon [icon]="faEdit"></fa-icon></a> | 
+        <a class="trash" (click)="deleteRow(element)"><fa-icon [icon]="faTrash"></fa-icon></a>  
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[10, 15, 20, 25, 30, 50]" showFirstLastButtons></mat-paginator>
+</div>
+
+

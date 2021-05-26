@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+.trash {
+    cursor: pointer;
+}
+
+.edit {
+    cursor: pointer;
+}
+
+
+.mat-raised-button.mat-success,
+.mat-flat-button.mat-success,
+.mat-fab.mat-success,
+.mat-mini-fab.mat-success {
+  color: #f0fff3;
+  background-color: lightgreen;
+}

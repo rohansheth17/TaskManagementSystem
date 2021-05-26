@@ -1,0 +1,51 @@
+<h4 mat-dialog-title style="color:white;background-color: darkblue;">Add Task</h4>
+<mat-dialog-content>
+   <form #myform="ngForm" (ngSubmit)="submitForm(myform)">
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Status </label>
+            <select class="form-control" style="width:30%;">
+                <option value="open">Open</option>
+                <option value="close">Close</option>
+            </select>
+        </div>
+       
+        <div class="form-group" style="display:flex; flex-direction: row;"> 
+            <label style="width:180px;display: inline-block;text-align: left;">Quote Type</label>
+            <input class="form-control" type="text" style="width:30%;" ngModel name="quotetype" required><br>
+            <span *ngIf="myform.controls.quotetype?.touched && myform.controls.quotetype.invalid">*Required</span>
+            &nbsp;&nbsp;&nbsp;<label>Quote Num</label>&nbsp;&nbsp;
+            <input class="form-control" type="number" style="width:10%;" ngModel name="quotenum" required>
+        </div>
+
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Task Type</label>
+            <input class="form-control" type="text" style="width:30%;" ngModel name="tasktype" required>
+        </div>
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Contact Name</label>
+            <input class="form-control" type="text" style="width:30%;" ngModel name="contactname" required>
+        </div>
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Quote</label>
+            <input class="form-control" type="number" style="width:30%;" ngModel name="quote" required>
+        </div>
+        <div class="form-group" style="display:flex; flex-direction: row;">
+            <label style="width:180px;display: inline-block;text-align: left;">Due Date</label>
+            <input class="form-control" type="date" style="width:15%;" ngModel name="duedate" required>
+            &nbsp;&nbsp;<small><ngb-timepicker class="form-control" [(ngModel)]="time" size="small" [meridian]="meridian" name="timepicker" required></ngb-timepicker></small>
+        </div><!--<pre>Selected time: {{time | json}}</pre>-->
+        <br>
+        <div class="form-group">
+            <label>Task Description</label>
+            <textarea class="form-control" [(ngModel)]="yourWish" name="taskdesc" id="yourWish" rows="3" maxlength="900" required></textarea>
+            <small><span style="position:relative;float:right;"><em>{{ 900 - yourWish?.length }} characters left</em></span></small>
+        </div>
+        <br>
+       <div style="position:relative;float:right;">
+        <button mat-raised-button color="success" type="submit" mat-dialog-close [disabled]="!myform.valid"><mat-icon>save</mat-icon> Submit</button>
+        &nbsp;&nbsp;<button mat-raised-button color="success" type="button" mat-dialog-close><mat-icon>cancel</mat-icon> Cancel</button> 
+       </div> 
+    </form>  
+</mat-dialog-content>
+
+
