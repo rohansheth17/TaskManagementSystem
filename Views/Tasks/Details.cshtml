@@ -1,0 +1,58 @@
+﻿@model TaskServiceAPI.DAL_Layer.tblTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTask</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Quote_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quote_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Task)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Task)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Due_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Due_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Task_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Task_type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
